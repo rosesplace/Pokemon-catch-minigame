@@ -24,7 +24,7 @@ Viewers can catch randomly spawning Pokémon using chat commands. The bot also p
      }
      ```
    - `botUsername`: Your Twitch bot’s username.  
-   - `oauthToken`: Twitch OAuth token (get one at https://twitchapps.com/tmi/).  
+   - `oauthToken`: Twitch OAuth token (get one at https://twitchtokengenerator.com).  
    - `channel`: Your Twitch channel name.  
    - `prefix`: Command prefix (default = `!`).  
    - `spawnIntervalMin` / `spawnIntervalMax`: Auto-spawn timer in seconds (default 2–5 minutes).
