@@ -26,13 +26,7 @@ A Twitch chat game where wild Pokémon appear in chat, and viewers can catch the
 1. **Install Node.js**  
    Download and install [Node.js](https://nodejs.org/) (LTS version recommended).  
 
-2. **Install dependencies**  
-   Open a terminal inside your bot folder and run:  
-   ```sh
-   npm install
-   ```
-
-3. **Configure your bot**  
+2. **Configure your bot**  
    Open `config.json` and fill in your details:  
    ```json
    {
