@@ -24,7 +24,7 @@ Viewers can catch randomly spawning Pokémon using chat commands. The bot also p
      }
      ```
    - `botUsername`: Your Twitch bot’s username.  
-   - `oauthToken`: Twitch OAuth token  (get one at [Twitch Token Generator](https://twitchtokengenerator.com)).  
+   - `oauthToken`: Twitch OAuth (access) token  (get one at [Twitch Token Generator](https://twitchtokengenerator.com)).  
    - `channel`: Your Twitch channel name.  
    - `prefix`: Command prefix (default = `!`).  
    - `spawnIntervalMin` / `spawnIntervalMax`: Auto-spawn timer in seconds (default 2–5 minutes).
@@ -88,7 +88,7 @@ Viewers can catch randomly spawning Pokémon using chat commands. The bot also p
 
 
 
-### 🔑 Getting your Twitch OAuth Token
+### 🔑 Getting your Twitch OAuth (access) Token
 1. Go to [Twitch Token Generator](https://twitchtokengenerator.com).
 2. Click **"Custom Scope Token"**.
 3. Log in with the Twitch account you want the bot to use.
