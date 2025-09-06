@@ -30,7 +30,7 @@ Viewers can catch randomly spawning Pokémon using chat commands. The bot also p
    - `spawnIntervalMin` / `spawnIntervalMax`: Auto-spawn timer in seconds (default 2–5 minutes).
 
 3. **Start the Bot**
-   - Just double-click `PCM.exe`.
+   - Just double-click `start.exe`.
    - A terminal window will open, showing bot logs.
 
 ---
@@ -85,3 +85,20 @@ Viewers can catch randomly spawning Pokémon using chat commands. The bot also p
 - Keep all files together in the same folder.
 - Closing the `start.exe` window will stop the bot.
 - The bot auto-spawns Pokémon every 2–5 minutes (customizable in config).
+
+
+
+### 🔑 Getting your Twitch OAuth Token
+1. Go to [Twitch Token Generator](https://twitchtokengenerator.com).
+2. Click **"Custom Scope Token"**.
+3. Log in with the Twitch account you want the bot to use.
+4. Under **Scopes**, select:
+   - `chat:read` (read chat messages)
+   - `chat:edit` (send messages in chat)
+5. Click **Generate Token**.
+6. Copy the generated **OAuth Token** and paste it into your `config.json` under:
+   ```json
+   "oauthToken": "oauth:xxxxxxxxxxxxxxxxxxxx"
+   ```
+
+⚠️ Keep this token private — anyone with it can send messages as your bot account!
