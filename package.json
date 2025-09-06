@@ -1,0 +1,19 @@
+{
+  "name": "twitch-pokemon-bot",
+  "version": "1.0.0",
+  "description": "Twitch Pokémon catching game with overlay animations",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "setup": "node setup.js",
+    "build-dex": "node buildDex.js"
+  },
+  "dependencies": {
+    "cli-progress": "^3.12.0",
+    "express": "^4.18.2",
+    "node-fetch": "^2.6.7",
+    "progress": "^2.0.3",
+    "tmi.js": "^1.8.5",
+    "ws": "^8.13.0"
+  }
+}

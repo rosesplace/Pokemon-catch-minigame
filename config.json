@@ -1,0 +1,6 @@
+   {
+     "botUsername": "YourBotName",
+     "oauthToken": "oauth:xxxxxxxxxxxxxxxxxxxxxx",
+     "channel": "yourchannelname",
+     "prefix": "!"
+   }
