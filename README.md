@@ -43,7 +43,10 @@ PokemonBot/
      "spawnIntervalMax": 300,
      "fleeTimeMin": 30,
      "fleeTimeMax": 60,
-     "startupMessage": "🌟 The Pokémon Catch Minigame has now started! Get ready for wild encounters...",
+     "eggHatchMinutes": 30,
+     "eggCooldownHours": 24,
+     "giveawayDuration": 30,
+     "enableGiveaways": true,
      "quests": [
        { "type": "catch_count", "goal": 3, "text": "Catch 3 Pokémon today" },
        { "type": "catch_type", "pokeType": "Water", "goal": 1, "text": "Catch a Water-type Pokémon" }
@@ -55,6 +58,10 @@ PokemonBot/
    - `prefix`: Command prefix (default: `!`)  
    - `spawnIntervalMin/Max`: How often Pokémon appear (seconds)  
    - `fleeTimeMin/Max`: How long they stay before fleeing (seconds)  
+   - `eggHatchMinutes`: Time until eggs hatch (minutes)  
+   - `eggCooldownHours`: Time before a user can claim a new egg (hours)  
+   - `giveawayDuration`: How long giveaways last (seconds)  
+   - `enableGiveaways`: `true` = giveaways allowed, `false` = disable `!giveaway` and `!join`  
    - `quests`: Add/edit daily quest templates (randomly assigned per user)  
 
 2. **Start the bot**  
@@ -70,7 +77,7 @@ PokemonBot/
    - Open OBS → *Sources* → Add → **Browser Source**  
    - Choose **Local File**, and select `overlay.html`  
    - Set width to `1080` and height to `720`  
-   - Pokémon, eggs, and evolutions will now appear on screen!  
+   - Pokémon, eggs, giveaways, and evolutions will now appear on screen!  
 
 ---
 
@@ -88,12 +95,14 @@ Viewers can interact with these commands:
 !egg                  → claim your daily Mystery Egg (1 every 24h)
 !hatch                → check your egg timer / progress
 !evolve <Pokémon>     → evolve a Pokémon you’ve owned for 3+ days
+!join                 → enter an active giveaway (if enabled)
 ```
 
 Moderator-only:
 
 ```
 !pokemon              → manually spawn a Pokémon
+!giveaway             → start a giveaway for a random rare Pokémon (if enabled)
 ```
 
 ---
@@ -105,9 +114,9 @@ Moderator-only:
 - **Daily Quests** – random daily quests with rewards (e.g. guaranteed catch)  
 - **Mystery Eggs** – viewers can claim 1 egg every 24h that hatches into a random Pokémon after 30 minutes  
 - **Evolution System** – evolve Pokémon you’ve owned for 3+ days into their next stage  
-- **Leaderboard Overlay** – shows top catchers on-screen for 10s when `!leaderboard` is used  
+- **Giveaways** – mods can run `!giveaway` to let viewers win a rare Pokémon (toggle in config)  
 - **Shiny Pokémon** – rare chance for shinies with glowing overlay effects  
-- **Overlay Animations** – spawn, catch shakes, egg hatching, and flashy evolution animations  
+- **Overlay Animations** – spawn, catch shakes, egg hatching, flashy evolution & giveaway win animations  
 
 ---
 
@@ -119,5 +128,5 @@ Moderator-only:
   - `quests.json` (daily quests)  
   - `eggs.json` (egg timers & claims)  
 - Keep **assets/** and **overlay.html** in the same folder as `pokecharm.exe`  
-- Start the bot **before OBS** so the overlay connects automatically
-- Make the bot either a MOD in your chat or a VIP
+- Start the bot **before OBS** so the overlay connects automatically  
+- Make the bot either a MOD in your chat or a VIP  
