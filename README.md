@@ -47,6 +47,8 @@ PokemonBot/
      "eggCooldownHours": 24,
      "giveawayDuration": 30,
      "enableGiveaways": true,
+     "specialEvent": "halloween",
+
      "quests": [
        { "type": "catch_count", "goal": 3, "text": "Catch 3 Pokémon today" },
        { "type": "catch_type", "pokeType": "Water", "goal": 1, "text": "Catch a Water-type Pokémon" }
@@ -58,11 +60,20 @@ PokemonBot/
    - `prefix`: Command prefix (default: `!`)  
    - `spawnIntervalMin/Max`: How often Pokémon appear (seconds)  
    - `fleeTimeMin/Max`: How long they stay before fleeing (seconds)  
-   - `eggHatchMinutes`: Time until eggs hatch (minutes)  
-   - `eggCooldownHours`: Time before a user can claim a new egg (hours)  
-   - `giveawayDuration`: How long giveaways last (seconds)  
-   - `enableGiveaways`: `true` = giveaways allowed, `false` = disable `!giveaway` and `!join`  
-   - `quests`: Add/edit daily quest templates (randomly assigned per user)  
+   - `eggHatchMinutes`: Time until an egg hatches (minutes)  
+   - `eggCooldownHours`: Time before you can claim another egg (hours)  
+   - `giveawayDuration`: How long giveaways stay open (seconds)  
+   - `enableGiveaways`: Toggle giveaways on/off (`true` or `false`)  
+   - `specialEvent`: Seasonal spawn pool override  
+     - `"halloween"` → Ghost-types 👻  
+     - `"winter"` → Ice-types ❄️  
+     - `"valentine"` → Fairy-types 💖  
+     - `"summer"` → Water-types 🌊  
+     - `"spring"` → Grass & Bug-types 🌱🐞  
+     - `"desert"` → Ground & Rock-types 🏜️  
+     - `"storm"` → Electric-types ⚡  
+     - `"dragonfest"` → Dragon-types 🐉  
+     - leave empty for normal random spawns  
 
 2. **Start the bot**  
    Run `pokecharm.exe`.  
@@ -77,7 +88,7 @@ PokemonBot/
    - Open OBS → *Sources* → Add → **Browser Source**  
    - Choose **Local File**, and select `overlay.html`  
    - Set width to `1080` and height to `720`  
-   - Pokémon, eggs, giveaways, and evolutions will now appear on screen!  
+   - Pokémon, eggs, evolutions, and giveaways will now appear on screen!  
 
 ---
 
@@ -95,14 +106,14 @@ Viewers can interact with these commands:
 !egg                  → claim your daily Mystery Egg (1 every 24h)
 !hatch                → check your egg timer / progress
 !evolve <Pokémon>     → evolve a Pokémon you’ve owned for 3+ days
-!join                 → enter an active giveaway (if enabled)
+!join                 → join an active giveaway
 ```
 
 Moderator-only:
 
 ```
 !pokemon              → manually spawn a Pokémon
-!giveaway             → start a giveaway for a random rare Pokémon (if enabled)
+!giveaway [Pokémon]   → start a giveaway (random rare if no Pokémon given)
 ```
 
 ---
@@ -110,13 +121,14 @@ Moderator-only:
 ## 🌟 Features
 
 - **Pokémon Spawning** – random wild Pokémon appear in chat & overlay  
+- **Seasonal Events** – special spawn pools during events (Halloween, Winter, Valentine, etc.)  
 - **Pokédex** – each viewer builds their own collection, saved in `pokedex.json`  
 - **Daily Quests** – random daily quests with rewards (e.g. guaranteed catch)  
 - **Mystery Eggs** – viewers can claim 1 egg every 24h that hatches into a random Pokémon after 30 minutes  
 - **Evolution System** – evolve Pokémon you’ve owned for 3+ days into their next stage  
-- **Giveaways** – mods can run `!giveaway` to let viewers win a rare Pokémon (toggle in config)  
+- **Giveaways** – mods can host timed giveaways for rare Pokémon  
 - **Shiny Pokémon** – rare chance for shinies with glowing overlay effects  
-- **Overlay Animations** – spawn, catch shakes, egg hatching, flashy evolution & giveaway win animations  
+- **Overlay Animations** – spawn, catch shakes, egg hatching, giveaways, and flashy evolution animations  
 
 ---
 
