@@ -33,12 +33,13 @@ Your folder should look like this:
 
     ``` json
     {
-      "channel": "yourtwitchname",
       "prefix": "!",
+      "channel": "rosesplace",
       "spawnIntervalMin": 120,
       "spawnIntervalMax": 300,
       "fleeTimeMin": 30,
-      "fleeTimeMax": 60
+      "fleeTimeMax": 60,
+      "startupMessage": "🌟 The Pokémon Catch Minigame has now started! Get ready for wild encounters..."
     }
     ```
 
@@ -58,7 +59,7 @@ Your folder should look like this:
 
     -   Open OBS → *Sources* → Add → **Browser Source**.\
     -   Choose **Local File**, and select `overlay.html`.\
-    -   Set width to `1920` and height to `1080`.\
+    -   Set width to `1080` and height to `720`.\
     -   Pokémon will now appear on screen when they spawn!
 
 ------------------------------------------------------------------------
