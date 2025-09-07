@@ -30,7 +30,7 @@ Viewers can catch randomly spawning Pokémon using chat commands. The bot also p
    - `spawnIntervalMin` / `spawnIntervalMax`: Auto-spawn timer in seconds (default 2–5 minutes).
 
 3. **Start the Bot**
-   - Just double-click `start.exe`.
+   - Just double-click `PCM.exe`.
    - A terminal window will open, showing bot logs.
 
 ---
