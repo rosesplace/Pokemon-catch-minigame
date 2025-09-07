@@ -87,3 +87,5 @@ Moderator-only:
 -   Each viewer's catches are saved in `pokedex.json`.\
 -   You must keep **assets/** and **overlay.html** in the same folder as
     `pokecharm.exe`.
+-   For ultimate feeling, moderate the bot
+-   Make sure you start the bot BEFORE obs!
