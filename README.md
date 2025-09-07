@@ -119,4 +119,5 @@ Moderator-only:
   - `quests.json` (daily quests)  
   - `eggs.json` (egg timers & claims)  
 - Keep **assets/** and **overlay.html** in the same folder as `pokecharm.exe`  
-- Start the bot **before OBS** so the overlay connects automatically  
+- Start the bot **before OBS** so the overlay connects automatically
+- Make the bot either a MOD in your chat or a VIP
