@@ -1,104 +1,88 @@
-# 📖 Twitch Pokémon Bot – README
+# 🎮 PokéCharm -- Twitch Pokémon Catching Game
 
-## 🎮 About
-This bot brings Pokémon catching fun to your Twitch chat!
-Viewers can catch randomly spawning Pokémon using chat commands. The bot also provides a visual **overlay** for OBS or any streaming platform.
+Bring the fun of catching Pokémon to your Twitch chat with
+**PokéCharm**!\
+A bot spawns wild Pokémon in your chat and on-screen overlay, and
+viewers can try to catch them live.
 
----
+------------------------------------------------------------------------
+
+## 📂 What's included
+
+Your folder should look like this:
+
+    PokemonBot/
+    │
+    ├─ pokecharm.exe          ← run this to start the bot
+    ├─ config.json            ← edit this to set your channel, prefix & settings
+    ├─ pokemon.json           ← master Pokémon list (don’t touch)
+    ├─ pokedex.json           ← auto-created/saved player catches
+    ├─ overlay.html           ← load into OBS as Browser Source
+    │
+    └─ assets/                ← images & sounds for overlay
+       ├─ sprites/            ← Pokémon sprites
+       ├─ balls/              ← Pokéball images
+       └─ sounds/             ← catch/shake/breakout sounds
+
+------------------------------------------------------------------------
 
 ## ⚙️ Setup
 
-1. **Download & Extract**
-   - Place all files in the same folder (including `start.exe`, `config.json`, `pokemon.json`, `overlay.html`, `assets/`).
+1.  **Edit `config.json`**\
+    Open with a text editor and set:
 
-2. **Edit Configuration**
-   - Open `config.json` with any text editor and update:
-     ```json
-     {
-       "botUsername": "YourBotName",
-       "oauthToken": "oauth:xxxxxx",
-       "channel": "yourchannel",
-       "prefix": "!",
-       "spawnIntervalMin": 120,
-       "spawnIntervalMax": 300
-     }
-     ```
-   - `botUsername`: Your Twitch bot’s username.  
-   - `oauthToken`: Twitch OAuth (access) token  (get one at [Twitch Token Generator](https://twitchtokengenerator.com)).  
-   - `channel`: Your Twitch channel name.  
-   - `prefix`: Command prefix (default = `!`).  
-   - `spawnIntervalMin` / `spawnIntervalMax`: Auto-spawn timer in seconds (default 2–5 minutes).
+    ``` json
+    {
+      "channel": "yourtwitchname",
+      "prefix": "!",
+      "spawnIntervalMin": 120,
+      "spawnIntervalMax": 300,
+      "fleeTimeMin": 30,
+      "fleeTimeMax": 60
+    }
+    ```
 
-3. **Start the Bot**
-   - Just double-click `PCM.exe`.
-   - A terminal window will open, showing bot logs.
+    -   `channel`: Your Twitch channel name (lowercase).\
+    -   `prefix`: Command prefix (default: `!`).\
+    -   `spawnIntervalMin/Max`: How often Pokémon appear (seconds).\
+    -   `fleeTimeMin/Max`: How long they stay before fleeing (seconds).
 
----
+2.  **Start the bot**\
+    Run `pokecharm.exe`.\
+    If successful, you'll see:
 
-## 🎥 Adding Overlay to OBS
+        ✅ Bot connected, starting auto spawns...
+        ✅ WebSocket overlay server running on ws://localhost:8080
 
-1. Open **OBS Studio** (or your streaming software).
-2. Add a **Browser Source**.
-3. Instead of a URL, click **Browse** and select the file:
-   ```
-   overlay.html
-   ```
-   (Make sure it’s the one in the bot’s folder).
-4. Adjust the size/position of the overlay.
-   - Pokémon and Pokéballs will now animate live during your stream!
+3.  **Set up OBS overlay**
 
----
+    -   Open OBS → *Sources* → Add → **Browser Source**.\
+    -   Choose **Local File**, and select `overlay.html`.\
+    -   Set width to `1920` and height to `1080`.\
+    -   Pokémon will now appear on screen when they spawn!
 
-## 💬 Commands
+------------------------------------------------------------------------
 
-### Moderator / Broadcaster Only
-- `!pokemon` → Spawns a random Pokémon.
-- `!pokemon <id>` → Spawns a Pokémon by Pokédex ID.
-- `!pokemon <name>` → Spawns a Pokémon by name.
-- `!pokestop` → Forces the current Pokémon to flee.
+## 🎮 Commands
 
-### Everyone
-- `!catch` → Try to catch the active Pokémon with a Pokéball.
+Viewers can interact with these commands:
 
-### Subscribers
-- `!catch greatball` → Tier 1+ subs only.
-- `!catch ultraball` → Tier 2+ subs only.
-- `!catch masterball` → Tier 3 subs only.
+    !catch                → try catching with a Pokéball
+    !catch greatball      → Tier 1+ subs only
+    !catch ultraball      → Tier 2+ subs only
+    !catch masterball     → Tier 3 subs only
+    !pokedex              → see your personal Pokédex
 
-### Pokédex
-- `!pokedex` → Shows the list of Pokémon you’ve caught.
+Moderator-only:
 
----
+    !pokemon              → manually spawn a Pokémon
+    !pokestop             → force current Pokémon to flee
 
-## 📂 Files Overview
+------------------------------------------------------------------------
 
-- `start.exe` → The bot program (double-click to start).
-- `config.json` → Configuration file.
-- `pokemon.json` → Full Pokémon list (1–1164).
-- `pokedex.json` → Auto-generated per-user Pokédex.
-- `overlay.html` → Overlay for OBS.
-- `assets/` → Sprites, Pokéballs, sounds.
+## 🐾 Notes
 
----
-
-## ✅ Notes
-- Keep all files together in the same folder.
-- Closing the `start.exe` window will stop the bot.
-- The bot auto-spawns Pokémon every 2–5 minutes (customizable in config).
-
-
-
-### 🔑 Getting your Twitch OAuth (access) Token
-1. Go to [Twitch Token Generator](https://twitchtokengenerator.com).
-2. Click **"Custom Scope Token"**.
-3. Log in with the Twitch account you want the bot to use.
-4. Under **Scopes**, select:
-   - `chat:read` (read chat messages)
-   - `chat:edit` (send messages in chat)
-5. Click **Generate Token**.
-6. Copy the generated **OAuth Token** and paste it into your `config.json` under:
-   ```json
-   "oauthToken": "oauth:xxxxxxxxxxxxxxxxxxxx"
-   ```
-
-⚠️ Keep this token private — anyone with it can send messages as your bot account!
+-   The bot always uses the **PokéCharm** account by default.\
+-   Each viewer's catches are saved in `pokedex.json`.\
+-   You must keep **assets/** and **overlay.html** in the same folder as
+    `pokecharm.exe`.
